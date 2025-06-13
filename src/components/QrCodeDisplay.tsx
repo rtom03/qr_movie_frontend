@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchQrCode } from "../api";
 
-const QrCodeDisplay: React.FC = () => {
+const QrCdDisplay: React.FC = () => {
   const [qrData, setQrData] = useState<{ qr: string; id: string } | null>(null);
 
   const getQr = async () => {
@@ -23,4 +23,4 @@ const QrCodeDisplay: React.FC = () => {
   );
 };
 
-export default QrCodeDisplay;
+export default QrCdDisplay;

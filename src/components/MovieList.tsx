@@ -12,19 +12,7 @@ const MovieList: React.FC = () => {
     Genre?: string;
     Director?: string;
   }
-
   const [movies, setMovies] = useState<Movie[]>([]);
-
-  // useEffect(() => {
-  //   const loadMovies = async () => {
-  //     const res = await fetchMovies(id!);
-  //     if (res.data.movies) {
-  //       console.log(movies);
-  //       setMovies(res.data.movies);
-  //     }
-  //   };
-  //   loadMovies();
-  // }, [id]);
   useEffect(() => {
     const loadMovies = async () => {
       const res = await fetchMovies(id!);
