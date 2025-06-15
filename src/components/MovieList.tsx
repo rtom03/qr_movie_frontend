@@ -39,22 +39,35 @@ const MovieList: React.FC = () => {
     <div style={{ textAlign: "center" }}>
       <h1>Here are your movies</h1>
       <ul>
-        {movies.map((movie, idx) => (
-          <div key={idx}>
-            <h3>{movie.Title}</h3>
-            <p>Year: {movie.Year}</p>
-            <p>Director: {movie.Director}</p>
-            <p>Genre: {movie.Genre}</p>
+        {movies.map((movie, idx) =>
+          movie ? (
+            <>
+              <div key={idx}>
+                <h3>{movie.Title}</h3>
+                <p>Year: {movie.Year}</p>
+                <p>Director: {movie.Director}</p>
+                <p>Genre: {movie.Genre}</p>
 
-            {movie.Images && movie.Images.length > 0 && (
-              <div>
-                {movie.Images.map((img, imgIdx) => (
-                  <img key={imgIdx} src={img} alt={movie.Title} width="150" />
-                ))}
+                {movie.Images && movie.Images.length > 0 && (
+                  <div>
+                    {movie.Images.map((img, imgIdx) => (
+                      <img
+                        key={imgIdx}
+                        src={img}
+                        alt={movie.Title}
+                        width="150"
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-        ))}
+            </>
+          ) : (
+            <>
+              <h1>ID EXPIRED RESCAN QR CODE TO GET NEW MOVIES</h1>
+            </>
+          )
+        )}
       </ul>
     </div>
   );
