@@ -15,16 +15,6 @@ const MovieList: React.FC = () => {
 
   const [movies, setMovies] = useState<Movie[]>([]);
 
-  // useEffect(() => {
-  //   const loadMovies = async () => {
-  //     const res = await fetchMovies(id!);
-  //     if (res.data.movies) {
-  //       console.log(movies);
-  //       setMovies(res.data.movies);
-  //     }
-  //   };
-  //   loadMovies();
-  // }, [id]);
   useEffect(() => {
     const loadMovies = async () => {
       const res = await fetchMovies(id!);
@@ -39,9 +29,9 @@ const MovieList: React.FC = () => {
     <div style={{ textAlign: "center" }}>
       <h1>Here are your movies</h1>
       <ul>
-        {movies.map((movie, idx) =>
-          movie ? (
-            <>
+        {movies.length > 0 ? (
+          movies.map((movie, idx) =>
+            movie ? (
               <div key={idx}>
                 <h3>{movie.Title}</h3>
                 <p>Year: {movie.Year}</p>
@@ -61,12 +51,12 @@ const MovieList: React.FC = () => {
                   </div>
                 )}
               </div>
-            </>
-          ) : (
-            <>
+            ) : (
               <h1>ID EXPIRED RESCAN QR CODE TO GET NEW MOVIES</h1>
-            </>
+            )
           )
+        ) : (
+          <h1>ID EXPIRED RESCAN QR CODE TO GET NEW MOVIES</h1>
         )}
       </ul>
     </div>
